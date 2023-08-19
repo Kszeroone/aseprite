@@ -24,10 +24,12 @@ jobs:
           cmake -G Ninja ..
           ninja aseprite
 
-      - name: Archive and Upload Aseprite Build
+      - name: Archive Aseprite Build
         run: |
           mkdir artifacts
           mv build/bin/Release/aseprite artifacts/
+
+      - name: Upload Aseprite Build
         uses: actions/upload-artifact@v2
         with:
           name: aseprite-macos
